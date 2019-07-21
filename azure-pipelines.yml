@@ -6,14 +6,16 @@
 trigger:
 - master
 
-# pool:
-#   vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
-# steps:
-# - task: NodeTool@0
-#   inputs:
-#     versionSpec: '10.x'
-#   displayName: 'Install Node.js'
+steps:
+- task: Docker@2
+  inputs:
+        command: buildAndPush
+        dockerfile: .
+        containerRegistry: saurabh1container1registry
+  displayName: Build and push an image to container registry
 
 # - script: |
 #     docker build -t saurabh1container1registry/nodejsapplication:latest .
@@ -21,18 +23,3 @@ trigger:
 #     docker login -n saurabh1container1registry
 #     docker push saurabh1container1registry/nodejsapplication:latest
 #   displayName: 'Building and Uploading Docker image'
-
-- stage: Build
-  displayName: Build and push stage
-  jobs:  
-  - job: Build
-    displayName: Build job
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        dockerfile: .
-        containerRegistry: saurabh1container1registry
