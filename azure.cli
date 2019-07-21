@@ -1,0 +1,1 @@
+az acr create --name saurabh1container1registry --resource-group saurabh-resource-group --sku Basic --admin-enabled true --location westeurope

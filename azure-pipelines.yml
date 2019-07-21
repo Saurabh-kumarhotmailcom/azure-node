@@ -16,5 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    docker build -t testimage .
-  displayName: 'Building Docker image'
+    docker build -t saurabh1container1registry/nodejsapplication:latest .
+    docker login -n saurabh1container1registry
+    docker push saurabh1container1registry/nodejsapplication:latest
+  displayName: 'Building and Uploading Docker image'
