@@ -16,5 +16,5 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    docker build -t testimage
-  displayName: 'Building DOcker image'
+    docker build -t testimage .
+  displayName: 'Building Docker image'

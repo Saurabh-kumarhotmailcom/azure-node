@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  azure-node:
+    image: azure-node
+    build: .
+    ports:
+      - 3000:1337
